@@ -85,4 +85,4 @@ Sistem ini di-deploy menggunakan infrastruktur Docker pada Hugging Face Spaces. 
 Link API Aktif: https://jundannz-ai-aduan-sampah-jogja.hf.space
 
 ## Pengembang
-Jundan Saiful Haq
+Jundan Saiful Haq 
