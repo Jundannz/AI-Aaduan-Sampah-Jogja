@@ -1,0 +1,63 @@
+{
+  "model_base": "indobenchmark/indobert-base-p1",
+  "notebook_version": "v2",
+  "task": "text-classification-kategori-kasus",
+  "num_labels": 7,
+  "label2id": {
+    "Tumpukan Sampah": 0,
+    "Jadwal Pengangkutan": 1,
+    "Sampah Berukuran Besar": 2,
+    "Fasilitas Rusak": 3,
+    "Limbah Berbahaya": 4,
+    "Administrasi": 5,
+    "Bukan Sampah": 6
+  },
+  "id2label": {
+    "0": "Tumpukan Sampah",
+    "1": "Jadwal Pengangkutan",
+    "2": "Sampah Berukuran Besar",
+    "3": "Fasilitas Rusak",
+    "4": "Limbah Berbahaya",
+    "5": "Administrasi",
+    "6": "Bukan Sampah"
+  },
+  "max_length": 128,
+  "label_source": "pseudo-label (rule-based) + augmented fasilitas_rusak",
+  "test_set_note": "PSEUDO-LABEL — human review required for gold standard evaluation",
+  "dataset_info": {
+    "total_after_dedup": 1584,
+    "dedup_threshold": 0.9,
+    "split": "80/10/10 stratified",
+    "train_size": 1266,
+    "val_size": 159,
+    "test_size": 159
+  },
+  "evaluation_test": {
+    "f1_macro": 0.8519,
+    "accuracy": 0.8679,
+    "precision_macro": 0.8536,
+    "recall_macro": 0.8549,
+    "f1_per_class": {
+      "Tumpukan Sampah": 0.848,
+      "Jadwal Pengangkutan": 0.8923,
+      "Sampah Berukuran Besar": 0.875,
+      "Fasilitas Rusak": 0.7273,
+      "Limbah Berbahaya": 0.8148,
+      "Administrasi": 0.875,
+      "Bukan Sampah": 0.931
+    }
+  },
+  "best_hyperparameters": {
+    "learning_rate": 4.545543915751125e-05,
+    "weight_decay": 0.1527988728253163,
+    "num_train_epochs": 4
+  },
+  "optuna_n_trials": 5,
+  "fixes_v2": [
+    "classification_report: tambah labels=class_names (fix label mismatch)",
+    "warmup_ratio → warmup_steps (fix deprecated warning)",
+    "dedup_threshold: 0.75 → 0.90, full text comparison",
+    "hf_logging.set_verbosity_error() untuk suppress LayerNorm warning",
+    "fasilitas_rusak: augmented dari 8 → 63 sampel sintetis"
+  ]
+}
